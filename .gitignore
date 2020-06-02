@@ -1,0 +1,19 @@
+/settings/local_settings.py
+/settings/options.py
+/local_settings.py
+/static/
+/media/
+/venv/
+/.venv*/
+/.idea/
+TODO
+*.pid
+
+# Compiled python files
+*.pyc
+*.pyo
+
+# Editor files
+*.swp
+*.swo
+*~

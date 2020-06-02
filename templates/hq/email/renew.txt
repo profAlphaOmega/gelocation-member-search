@@ -1,0 +1,63 @@
+On behalf of the AAVSO staff and Council I want to thank you for renewing 
+your membership with the AAVSO. As a nonprofit organization, membership fees
+support our core mission and our staff who deliver quality programming and
+support. You are part of an international community of astronomers both 
+amateur and professional who are leading the world in variable star astronomy. 
+
+Please click this link to retrieve your exclusive 2018 AAVSO membership logo,
+which can be used on your web page or email signature:
+https://www.dropbox.com/sh/0p2yzupt2lamrgb/AAA9dXL_lbY4qqyjpy8nlwRRa?dl=0
+
+For more than one hundred years, we have trained observers, educated the 
+public and curated a rich database of nearly 30,000 variable objects. Our 
+data routinely appear in scientific manuscripts, our observers are frequently
+called to support space-based observations, our manuals and software are 
+commonly used in classrooms and by astronomy clubs for information and 
+training. Our charts and sequences are in high demand by observers all 
+over the world, and VSX is widely used by the astronomical community as 
+a resource of up-to-date information on variable stars. All these – and 
+even more – are supported by your active participation and membership. 
+
+You might also consider adopting a variable star as a gift through our 
+Adopt a Variable Star Program. On our website’s home page simply click
+under “Support the AAVSO”. You will be directed to a web form where 
+you can “adopt” any variable star listed in VSX for one year, for a 
+donation to the AAVSO of ${{ADOPT_COST}}.00 US (tax-deductible in the US).
+
+You will receive a star chart of that variable star and a certificate showing
+either your name or the name of the person you specify on it. Also, at the 
+end of your year you will receive a light curve of your star for that year. 
+
+I encourage you to contact headquarters staff if you need assistance or have
+any suggestions for future programming. Thank you again for renewing your 
+AAVSO membership.
+
+Best wishes – clear skies,
+
+Stella Kafka, PhD
+AAVSO Director
+
+
+
+Member
+------
+{{ user.get_full_name }}
+Username: {{ user.username }} (#{{user.id}})
+
+Charges
+-------
+Order ID: {{ post_data.PNREF }}
+{% for charge in charges %}
+{% if charge.type == "dues" %}Dues for {{charge.dates.0|date:"F Y"}} - {{charge.dates.1|date:"F Y"}}: ${{ charge.total|floatformat:2 }} {% elif charge.type == "sustaining" %}Sustaining Dues for {{charge.year}}: ${{charge.total|floatformat:2}} {% elif charge.type == "fee" %}Membership Application Fee: {{charge.total|floatformat:2}} {% elif charge.type == "donation" %}Donation to {{charge.designation}}: ${{charge.total|floatformat:2}}{% endif %}{% endfor %}
+Total: ${{total|floatformat:2}}
+
+{% if donation %}Donation comments: {{ donation.comments }}{% endif %}
+
+Bill To:
+-------
+{{ post_data.ADDRESS }}
+{{ post_data.CITY }} {{ post_data.STATE }} {{ post_data.ZIP }}
+{{ post_data.COUNTRY }}
+Phone: {{ post_data.PHONE }}
+Email: {{ post_data.EMAIL }}
+

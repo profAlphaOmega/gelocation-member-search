@@ -1,0 +1,106 @@
+{% extends "admin/base_site.html" %}
+{% load admin_static %}
+{% load i18n %}
+
+{% load common_tags %}
+
+{% block title %}Member Search | {% trans 'Django site admin' %}
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" 
+    href="{% static "admin/css/forms.css" %}" />
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+  <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+  &rsaquo; <a href="{% url 'admin:app_list' app_label='hq'%}">Hq</a>
+  &rsaquo; <a href="{% url 'admin:hq_person_changelist' %}">Members</a>
+  &rsaquo; Search
+</div>
+{% endblock %}
+
+{% block content %}
+<h1>Search Members</h1>
+<form method='GET'>
+  <!-- General -->
+  <fieldset class='module aligned'>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.id__in %} 
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.obscode__in %} 
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.q %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.email__contains %}
+      {% include 'hq/field.html' with field=form.email_optout %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.city %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.region %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.country %}
+    </div>
+  </fieldset>
+
+  <fieldset class='module aligned'>
+    <h2>Membership</h2>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.membership_type %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.membership_status %}
+      {% include 'hq/field.html' with field=form.membership_year %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.unpaid %}
+    </div>
+  </fieldset>
+
+  <fieldset class='module aligned'>
+    <h2>Publications</h2>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.subscription_type %}
+    </div>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.subscription_year %}
+    </div>
+  </fieldset>
+
+  <fieldset class='module aligned'>
+    <h2>Miscellaneous</h2>
+    {% include 'hq/range_field.html' with label="Latitude" start=form.latitude__gte end=form.latitude__lte %}
+    {% include 'hq/range_field.html' with label="Longitude" start=form.longitude__gte end=form.longitude__lte %}
+  </fieldset>
+
+  <fieldset class='module aligned'>
+    <h2>HQ</h2>
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.notes__contains %}
+    </div>
+    {% include 'hq/range_field.html' with label="Member joined" start=form.member_joined__gte end=form.member_joined__lte %}
+    {% include 'hq/range_field.html' with label="Observer added" start=form.observer_added__gte end=form.observer_added__lte %}
+    <div class="form-row">
+      {% include 'hq/field.html' with field=form.astronomer %}
+      {% include 'hq/field.html' with field=form.institution %}
+      {% include 'hq/field.html' with field=form.council %}
+      {% include 'hq/field.html' with field=form.staff %}
+      {% include 'hq/field.html' with field=form.address_invalid %}
+      {% include 'hq/field.html' with field=form.deceased %}
+      {% include 'hq/field.html' with field=form.solar_observer %}
+    </div>
+  </fieldset>
+
+  <div class="submit-row">
+    <input type='submit' value='Search' />
+  </div>
+</form>
+{% endblock %}

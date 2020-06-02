@@ -1,0 +1,32 @@
+Thank you very much for your #GivingTuesday donation! The details of your payment are below. The AAVSO is a registered 501(c)(3) non-profit organization. You can save and print this receipt for tax purposes.
+
+Order ID: {{ POST.PNREF }}
+Amount: ${{ amount|floatformat:2 }}
+Designation: General Fund{% if data.comments %}
+Comments: {{ data.comments }}{% endif %}{% if data.honor %}
+This gift is in honor of {{ data.honor }}{% endif %}{% if data.memory %}
+This gift is in memory of {{ data.memory }}{% endif %}
+This gift is anonymous: {{ data.anonymous|yesno:"YES,NO" }}
+
+User: {{ user }}({{user.id}})
+
+Contact Info
+------------
+{{ data.title }} {{ data.given_name }} {{ data.middle_name }} {{ data.family_name }} {{ data.name_suffix }}{% if data.organization %}
+{{ data.organization }}{% endif %}
+{{ data.address1 }}{% if data.address2 %}
+{{ data.address2 }}{% endif %}
+{{ data.city }} {{ data.region }} {{ data.postal }}
+{{ data.get_country_display }}
+Email: {{ data.email }}
+Phone: {{ data.phone1 }}{% if data.phone2 %}
+Phone2: {{ data.phone2 }}{% endif %}
+
+Billing Info
+------------
+{{ POST.NAME }}
+{{ POST.ADDRESS }}
+{{ POST.CITY }} {{ POST.STATE }} {{ POST.ZIP }}
+{{ POST.COUNTRY }}
+Email: {{ POST.EMAIL }}
+Phone: {{ POST.PHONE }}

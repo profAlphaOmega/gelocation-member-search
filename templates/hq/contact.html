@@ -1,0 +1,66 @@
+<address class='vcard'>
+  <strong>
+  {% if fullname_only %}
+  <div class='fn n'>{{ record.get_full_name }}</div>
+  {% else %}
+  <div class='fn n'>
+    {% if record.title %}
+    <span class='honorific-prefix'>{{ record.title }}</span>
+    {% endif %}
+
+    <span class='given-name'>{{ record.given_name}}</span>
+
+    {% if record.middle_name %}
+    <span class='additional-name'>{{ record.middle_name }}</span>
+    {% endif %}
+
+    <span class='family-name'>{{ record.family_name }}</span>
+
+    {% if record.name_suffix %}
+    <span class='honorific-suffix'>{{ record.name_suffix }}</span>
+    {% endif %}
+  </div>
+  {% endif %}
+  </strong>
+
+  {% if record.organization %}
+  <div class='org'>{{ record.organization }}</div>
+  {% endif %}
+
+  {% if record.address1 or record.city or record.country %}
+  <span class='adr'>
+    {% if record.address1 %}
+    <div class='street-address'>{{ record.address1 }}</div>
+    {% endif %}
+    {% if record.address2 %}
+    <div class='extended-address'>{{ record.address2 }}</div>
+    {% endif %}
+    {% if record.city or record.state or record.postal %}
+    <div>
+      {% if record.city %}
+      <span class='locality'>{{ record.city }}</span>
+      {% endif %}
+      {% if record.region %}
+      <span class='region'>{{ record.region }}</span>
+      {% endif %}
+      {% if record.postal %}
+      <span class='postal-code'>{{ record.postal }}</span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if record.country %}
+    <div class='country-name'>{{ record.get_country_display }}</div>
+    {% endif %}
+  </span>
+  {% endif %}
+
+  {% if record.phone1 %}
+  <div class='tel'>{{ record.phone1 }}</div>
+  {% endif %}
+  {% if record.phone2 %}
+  <div class='tel'>{{ record.phone2 }}</div>
+  {% endif %}
+  {% if record.email %}
+  <div class='email'>{{ record.email }}</div>
+  {% endif %}
+</address>

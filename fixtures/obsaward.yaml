@@ -1,0 +1,25 @@
+- model: hq.obsaward
+  pk: 1
+  fields:
+    name: "Visual"
+
+- model: hq.obsaward
+  pk: 2
+  fields:
+    name: "CCD"
+
+- model: hq.obsaward
+  pk: 3
+  fields:
+    name: "PEP"
+
+- model: hq.obsaward
+  pk: 4
+  fields:
+    name: "Solar"
+
+- model: hq.obsaward
+  pk: 5
+  fields:
+    name: "SID"
+

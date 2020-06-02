@@ -1,0 +1,29 @@
+MemberSearch
+
+url: /member/search
+Completion: April 2017
+
+Added/Modified Files:
+/templates - findmember.html
+views.py - UserSearch()
+forms.py - FindMemberByLocation(), FindMemberByUser()
+models.py - Person.set_coordinates()
+
+
+Description:
+
+The app was developed for Members to be able to search one another.
+You must be a member and authenticated to do so.
+You may opt out by going to your profile page.
+You have two ways to search:
+1) By username, obscode, or last name. App performs a lookup against the hq_Person Table
+2) By your address on file, a user inputted location, or lat long. You are required to input a search radius as well.
+If a user inputs multiple entries for search type 2, the priority in which is searches is top to bottom.
+This app has an external dependency on pygeocoder to look up location inputs
+No data is set to tables in this app. Forms are only used to query against tables. All forms should remain GET requests therfore.
+
+Happy Searching
+
+The membersearch branch was created in 10/2015. By 4/2017 it was so out-of-sync with
+the master that its functional content was hand merged into the membersearch2 
+branch.

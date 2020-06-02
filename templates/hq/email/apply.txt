@@ -1,0 +1,83 @@
+On behalf of the AAVSO staff and council, it is a pleasure to welcome you to the AAVSO family! 
+
+We would like to offer any assistance we can, and answer any questions you may have. Please let
+us know if you'd like help setting up an observing program or if you need more information on 
+our community’s forums and mailing lists, or how you can publish your work in our journal (JAAVSO). 
+
+If you are a new observer, I particularly encourage you to use our Mentorship program; we will 
+find a member of our community who can give you information on variable stars, provide advice 
+and feedback on observing variable stars and will help you set up your own observing program.
+
+Our database, including more than 30,000 objects with observations that span more than a century, 
+always welcomes new observations. Our data are being used by the scientific community and your 
+contribution (visual, PEP, DSLR or CCD) is greatly valued by our esteemed academic colleagues.
+
+Please access your new member kit, which includes the AAVSO Bylaws, Annual Report, a recent copy
+of the Journal (JAAVSO), observing manuals and much more, through this unique DropBox location:
+https://www.dropbox.com/sh/ateqm3nq9jxrvy2/AADdrmOwkKyHezTAcp9-_nQ5a?oref=e&n=351631456
+
+Your AAVSO membership certificate should arrive in the mail within four weeks of joining. If you
+do not receive it in that time, please let me know right away. 
+
+You can also share your ideas and keep up with your new AAVSO community by liking our Facebook page:
+http://www.facebook.com/pages/American-Association-of-Variable-Star-Observers-AAVSO/113475672255
+
+or following us on Twitter:
+https://twitter.com/AAVSO
+
+If there is anything we can do to help you, please feel free to contact us. We can be reached by 
+phone at 617-354-0484, (9:00am-4:00pm EDT Monday through Friday) or by email at aavso@aavso.org.
+
+Finally, I hope to have the chance to meet you in person in the future, perhaps in one of our 
+meetings. I appreciate having you as member of our family!
+
+Best wishes – clear skies,
+Stella Kafka, AAVSO Director
+
+
+New Member
+----------
+{{ user.get_full_name }}
+Username: {{ user.username }} (#{{ user.id }})
+
+Charges
+-------
+Order ID: {{ post_data.PNREF }}
+{% for charge in charges %}
+{% if charge.type == "dues" %}Dues for {{charge.dates.0|date:"F Y"}} - {{charge.dates.1|date:"F Y"}}: ${{ charge.total|floatformat:2 }} {% elif charge.type == "sustaining" %}Sustaining Dues for {{charge.year}}: ${{charge.total|floatformat:2}} {% elif charge.type == "fee" %}Membership Application Fee: ${{charge.total|floatformat:2}} {% endif %}{% endfor %}
+Total: ${{total|floatformat:2}}
+
+Bill To:
+-------
+{{ post_data.ADDRESS }}
+{{ post_data.CITY }} {{ post_data.STATE }} {{ post_data.ZIP }}
+{{ post_data.COUNTRY }}
+Phone: {{ post_data.PHONE }}
+Email: {{ post_data.EMAIL }}
+
+Mail To:
+-------
+{% if user.organization %}{{ user.organization }}
+{% endif %}{% if user.address1 %}{{ user.address1 }}
+{% endif %}{% if user.address2 %}{{ user.address2 }}
+{% endif %}{% if user.city or user.region or user.postal %}{{ user.city }} {{ user.region }} {{ user.postal }}
+{% endif %}{{ user.get_country_display }}
+Phone: {{ user.phone1 }}
+Phone 2: {{ user.phone2 }}
+Email: {{ user.email }}
+
+Miscellaneous Information
+------------------
+{% if user.astronomer %}Is Professional Astronomer
+{% endif %}{% if user.institution %}This account is for an institution
+{% endif %}{% if user.latitude %}Latitude: {{ user.latitude }}
+{% endif %}{% if user.longitude %}Longitude: {{ user.longitude }}
+{% endif %}Affiliation {{ user.affiliation }}
+{% if user.birthdate %}Birthdate: {{ user.birthdate }}
+{% endif %}{% if user.nickname %}Nickname: {{ user.nickname }}
+{% endif %}{% if user.profession %}Profession: {{ user.profession }}
+{% endif %}{% if user.equipement %}Equipment: {{ user.equipment }}
+{% endif %}{% if user.experience %}Experience: {{ user.experience }}
+{% endif %}{% if user.howheard %}How heard: {{ user.howheard }}
+{% endif %}{% if user.member_notes %}Member notes: {{ user.member_notes }}
+{% endif %}

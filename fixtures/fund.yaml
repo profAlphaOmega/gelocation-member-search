@@ -1,0 +1,40 @@
+- model: hq.fund
+  pk: 1
+  fields:
+    name: "General Fund"
+
+- model: hq.fund
+  pk: 2
+  fields:
+    name: "Endowment Fund"
+
+- model: hq.fund
+  pk: 3
+  fields:
+    name: "Building Fund"
+
+- model: hq.fund
+  pk: 4
+  fields:
+    name: "Janet A. Mattei Research Fellowship"
+
+- model: hq.fund
+  pk: 5
+  fields:
+    name: "Margaret Mayall Assistanceship Fund"
+
+- model: hq.fund
+  pk: 6
+  fields:
+    name: "Member Sponsorship Fund"
+
+- model: hq.fund
+  pk: 7
+  fields:
+    name: "Visiting Astronomer Travel"
+
+- model: hq.fund
+  pk: 8
+  fields:
+    name: "Solar Fund"
+

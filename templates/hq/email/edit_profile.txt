@@ -1,0 +1,5 @@
+A user has updated their profile. You can see the changes below:
+User: {{user}}({{user.id}})
+
+{% for field, diff in record_diff.items %}
+{{ field }}: {{ diff.0 }} -> {{ diff.1}}{% endfor %}

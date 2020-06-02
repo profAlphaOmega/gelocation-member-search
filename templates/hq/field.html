@@ -1,0 +1,8 @@
+<div class="field-box">
+  {{ field.errors }}
+  {{ field.label_tag }}
+  {{ field }}
+  {% if field.help_text %}
+  <p class="help{% if field.errors%} errors{%endif%}">{{ field.help_text|safe }}</p>
+  {% endif %}
+</div>

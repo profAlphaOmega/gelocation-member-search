@@ -1,0 +1,20 @@
+- model: hq.certification
+  pk: 1
+  fields:
+    name: "CHOICE: Uncertainty About Uncertainty"
+
+- model: hq.certification
+  pk: 2
+  fields:
+    name: "CHOICE: Developing a Visual Program"
+
+- model: hq.certification
+  pk: 3
+  fields:
+    name: "CHOICE: CCD Image Calibration"
+
+- model: hq.certification
+  pk: 4
+  fields:
+    name: "CHOICE: Variable Star Classification and Light Curves"
+

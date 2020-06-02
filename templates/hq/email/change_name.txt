@@ -1,0 +1,10 @@
+A user has requested a name change:
+
+User: {{user.username}} ({{user.id}})
+
+New Name:
+Title: {{data.title}}
+Given Name: {{data.given_name}}
+Middle Name(s): {{data.middle_name}}
+Family Name: {{data.family_name}}
+Suffix: {{data.name_suffix}}

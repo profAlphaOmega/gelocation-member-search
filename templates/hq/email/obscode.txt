@@ -1,0 +1,14 @@
+Obscode assigned for {{ user }} ({{ user.id }})
+Obscode: {{ user.obscode }}
+
+User Information:
+{{ user.full_name }}
+{{ user.address1 }}
+{{ user.address2 }}
+{{ user.city }}
+{{ user.region }}
+{{ user.postal }}
+{{ user.get_country_display }}
+{{ user.email }}
+{{ user.phone1 }}
+{{ user.phone2 }}

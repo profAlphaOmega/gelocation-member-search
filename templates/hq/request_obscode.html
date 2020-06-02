@@ -1,0 +1,24 @@
+{% extends "hq/base.html" %}
+{% load common_tags %}
+{% load common_forms %}
+
+{% block title %}Request Obscode{% endblock %}
+{% block header %}Request Obscode{% endblock %}
+
+{% block breadcrumbs %}
+{{block.super}}
+{% add_breadcrumb "Request Obscode" "hq:request_obscode" %}
+{% endblock %}
+
+{% block content %}
+{% form "POST" %}
+<p>Before we can assign you an obscode, we need to collect your information.</p>
+{% form_errors form %}
+<p>Fields with an asterisk (<span class='required-field'>*</span>)
+are required.</p>
+{% include "hq/record_form.html" %}
+{% csrf_token %}
+{% form_submit "Submit" %}
+{% endform %}
+
+{% endblock %}

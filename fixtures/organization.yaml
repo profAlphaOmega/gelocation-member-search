@@ -1,0 +1,223 @@
+- model: hq.organization
+  pk: 0
+  fields: 
+     id: 0
+     name: "American Association of Variable Star Observers"
+     abbreviation: "AAVSO"
+
+- model: hq.organization
+  pk: 1
+  fields: 
+     name: "Association Francaise des Observateurs d'Etoiles Variables"
+     abbreviation: "AFOEV"
+
+- model: hq.organization
+  pk: 2
+  fields: 
+     name: "Bundesdeutsche Arbeitsgemeinschaft fur Veranderliche Sterne e.V.(Germany)"
+     abbreviation: "BAV"
+
+- model: hq.organization
+  pk: 3
+  fields: 
+     name: "Magyar Csillagaszati Egyesulet, Valtozocsillag Szakcsoport (Hungary)"
+     abbreviation: "MCSE"
+
+- model: hq.organization
+  pk: 4
+  fields: 
+     name: "Koninklijke Nederlandse Vereniging Voor Weer-en Sterrenkunde, Werkgroep Veranderlijke Sterren (Netherlands)"
+     abbreviation: "KNVWS"
+
+- model: hq.organization
+  pk: 5
+  fields: 
+     name: "Vereniging Voor Sterrenkunde, Werkgroep Veranderlijke Sterren (Belgium)"
+     abbreviation: "VVS"
+
+- model: hq.organization
+  pk: 6
+  fields: 
+     name: "Madrid Astronomical Association M1 (Spain)"
+     abbreviation: "AAM"
+
+- model: hq.organization
+  pk: 7
+  fields: 
+     name: "Asociacion de Variabilistas de Espagne (Spain)"
+     abbreviation: "AVE"
+
+- model: hq.organization
+  pk: 8
+  fields: 
+     name: "Norwegian Astronomical Society, Variable Star Section"
+     abbreviation: "NAS"
+
+- model: hq.organization
+  pk: 9
+  fields: 
+     name: "Ukraine Astronomical Group, Variable Star Section"
+     abbreviation: "UAG"
+
+- model: hq.organization
+  pk: 10
+  fields: 
+     name: "Astronomical Society of Southern Africa, Variable Star Section"
+     abbreviation: "ASSA"
+
+- model: hq.organization
+  pk: 11
+  fields: 
+     name: "Astronomisk Selskab (Denmark)"
+     abbreviation: "AS"
+
+- model: hq.organization
+  pk: 12
+  fields: 
+     name: "Liga Iberoamericana de Astronomia (South America)"
+     abbreviation: "LIADA"
+
+- model: hq.organization
+  pk: 13
+  fields: 
+     name: "Rede de Astronomia Observacional (Brazil)"
+     abbreviation: "REA"
+
+- model: hq.organization
+  pk: 14
+  fields: 
+     name: "Royal Astronomical Society of New Zealand, Variable Star Section"
+     abbreviation: "RASNZ-VSS"
+
+- model: hq.organization
+  pk: 15
+  fields: 
+     name: "Agrupacion Astronomica de Sabadell (Spain)"
+     abbreviation: "AASABADELL"
+
+- model: hq.organization
+  pk: 16
+  fields: 
+     name: "Association of Variable Star Observers - Pleione (Russia)"
+     abbreviation: "RUS"
+
+- model: hq.organization
+  pk: 17
+  fields: 
+     name: "URSA Astronomical Association, Variable Star Section (Finland)"
+     abbreviation: "URSA"
+
+- model: hq.organization
+  pk: 18
+  fields: 
+     name: "Unione Astrofili Italiani (Italy)"
+     abbreviation: "UAI"
+
+- model: hq.organization
+  pk: 19
+  fields: 
+     name: "Svensk Amator Astronomisk Forening, variabelsektionen (Sweden)"
+     abbreviation: "SAAF"
+
+- model: hq.organization
+  pk: 20
+  fields: 
+     name: "British Astronomical Association, Variable Star Section"
+     abbreviation: "BAA-VSS"
+
+- model: hq.organization
+  pk: 21
+  fields: 
+     name: "Israeli Astronomical Association, Variable Star Section"
+     abbreviation: "IAA-VSS"
+
+- model: hq.organization
+  pk: 22
+  fields: 
+     name: "Sociedad Astronomica Syrma (Valladolid, Spain)"
+     abbreviation: "SASYRMA"
+
+- model: hq.organization
+  pk: 23
+  fields: 
+     name: "Grupo Astronomico Silos (Zaragoza, Spain)"
+     abbreviation: "GAS"
+
+- model: hq.organization
+  pk: 24
+  fields: 
+     name: "Astronomischer Jugendclub (Austria)"
+     abbreviation: "AJC"
+
+- model: hq.organization
+  pk: 25
+  fields: 
+     name: "Variable Star Observers League in Japan"
+     abbreviation: "VSOLJ"
+
+- model: hq.organization
+  pk: 26
+  fields: 
+     name: "Red de Observadores del Uruguay"
+     abbreviation: "ROU"
+
+- model: hq.organization
+  pk: 27
+  fields: 
+     name: "Royal Astronomical Society of Canada"
+     abbreviation: "RASC"
+
+- model: hq.organization
+  pk: 28
+  fields: 
+     name: "Asociacion Argentina Amigos de la Astronomia (Buenos Aires, Argentina)"
+     abbreviation: "AAAA"
+
+- model: hq.organization
+  pk: 31
+  fields: 
+     name: "Center for Backyard Astronomy"
+     abbreviation: "CBA"
+
+- model: hq.organization
+  pk: 30
+  fields: 
+     name: "none"
+     abbreviation: ""
+
+- model: hq.organization
+  pk: 29
+  fields: 
+     name: "Variable Stars South"
+     abbreviation: "VSS"
+
+- model: hq.organization
+  pk: 32
+  fields: 
+     name: "Groupe Europeen d'Observations Stellaires"
+     abbreviation: "GEOS"
+
+- model: hq.organization
+  pk: 33
+  fields: 
+     name: "Variable Star NETwork"
+     abbreviation: "vsnet"
+
+- model: hq.organization
+  pk: 34
+  fields: 
+     name: "Astronomical Society of South Australia"
+     abbreviation: "ASSAU"
+
+- model: hq.organization
+  pk: 35
+  fields: 
+     name: "Red de Observatores de Estrellas Variables - MIRA (Spain)"
+     abbreviation: "ROEVM"
+
+- model: hq.organization
+  pk: 36
+  fields: 
+     name: "Nucleo de Estudo e Observacao Astronomica - Jose Brazilicio de Souza (Florianopolis, Brazil)"
+     abbreviation: "NEOA-JBS"
+

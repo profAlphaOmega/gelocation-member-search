@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load aavso_forms %}
+{% load common_tags %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
+{% block title %}Find AAVSO Members/Observers{% endblock %}
+{% block header %}Find AAVSO Members/Observers{% endblock %}
+
+{% block breadcrumbs %}
+{{block.super}}
+{% add_breadcrumb "People Search" "hq:search" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-xs-12">
+    <p>
+        Find other AAVSOers! Search for AAVSO members, observers, and others who have opted-in to this search by
+        (1) username, obscode, last name or (2) choose a starting location and then specify a search radius.
+    </p>
+    </div>
+<div class="col-xs-12">
+    <p>
+        If you'd like to opt-out from the search results, go to your
+        <a href="{% url 'hq:profile' %}">Account</a>, click “Edit your information”
+        and un-check the box reading
+        &quot;I would like other AAVSO users to be able to search for me&quot;. If you want to be found but not contacted,
+        go to your <a href="/user/{{ user.drupal_id }}/">Profile</a>, click the “Edit” tab and uncheck the
+        &quot;Personal contact form&quot; box under “Contact Settings”.
+    </p>
+</div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                {% form_errors locationsearchform %}
+                <div class="panel panel-default">
+                    <div class="panel-heading lead" >
+                        Search by Person
+                    </div>
+                    <div class="panel-body">
+                    <form method='GET' class='col-xs-12 form-horizontal'>
+                        <div class="col-xs-8">
+                            {% field usersearchform.searchterm %}
+                        </div>
+                        <div class="col-xs-4" style="margin-top: 27px">
+                            <button type='submit' class='btn btn-primary' value="true" name="usersearch">Search by Person</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading lead">
+                    Enter a starting location and search radius
+                </div>
+                <div class="panel-body">
+                    <form method='GET' class='col-xs-12  form-horizontal'>
+                        <div class="col-xs-12">
+                            {% field locationsearchform.user_location_search %}
+                        </div>
+                        <div class="col-xs-12" style="text-align: center">
+                            <b>or</b>
+                        </div>
+                        <div class="col-xs-12">
+                            {% field locationsearchform.location %}</div>
+                        <div class="col-xs-12" style="text-align: center">
+                            <b>or</b>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            {% field locationsearchform.latitude %}
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            {% field locationsearchform.longitude %}
+                        </div>
+                        <div class="col-xs-12" style="text-align: center">
+                            <b>then enter a search radius</b>
+                        </div>
+                        <div class="col-xs-8">
+                            {% field locationsearchform.search_radius %}
+                        </div>
+                        <div class="col-xs-4" style="margin-top: 27px;">
+                            <button type='submit' class='btn btn-primary' value="true" name="userlocation">Search by Location</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!--style="width: 550px; float: left; padding: 0px 0px 0px 0px"-->
+<div class="row">
+    <div class="col-xs-12 results">
+       {% if found_by_username_flag %}
+            {% if found_members %}
+            <div class="foundmembers">
+                <div class="alert alert-info text-center">
+                    {% if found_members|length > 1 %}
+                    <b>{{found_members|length}} People found</b>
+                    {% else %}
+                    <b>{{found_members|length}} Person found</b>
+                    {% endif %}
+                </div>
+                   <table class="table table-hover">
+                        <thead>
+                            <tr class="active">
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Obscode</th>
+                                <th>Location</th>
+                                <th>Profile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for member in found_members|dictsort:'given_name'|dictsort:'family_name' %}
+                            <tr>
+                                  <td>{{member.given_name}} {{member.family_name}}</td>
+                                  <td>{{member.username}}</td>
+                                  <td>{{member.obscode}}</td>
+                                  <td>{{member.location_disp}}</td>
+
+                                <td>
+                                {% if member.drupal_id %}
+                                    <a href='/user/{{member.drupal_id}}'>Profile</a>
+                                {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            {% else %}
+                {% if not messages %}
+                    <div class="alert alert-danger nomembersfound text-center">
+                        <b>No one was found. Try another search criteria.</b>
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        {% endif %}
+
+
+
+        {% if found_by_coordinates_flag %}
+            {% if found_members %}
+            <div class="foundmembers">
+                <div class="alert alert-info text-center">
+                    {% if found_members|length > 1 %}
+                    <b>{{found_members|length}} People found</b>
+                    {% else %}
+                    <b>{{found_members|length}} Person found</b>
+                    {% endif %}
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="active">
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Obscode</th>
+                            <th>Location</th>
+                            <th>Distance</th>
+                            <th>Profile</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            {% for member in found_members|dictsort:'given_name'|dictsort:'family_name'|dictsort:'dist' %}
+                            <tr>
+                                    <td>{{member.given_name}} {{member.family_name}}</td>
+                                    <td>{{member.username}}</td>
+                                    <td>{{member.obscode}}</td>
+                                    <td>{{member.location_disp}}</td>
+                                    <td>{{member.dist|floatformat}} km / {{member.dist_mi|floatformat}} mi</td>
+
+
+                                <td>
+                                {% if member.drupal_id %}
+                                    <a href='/user/{{member.drupal_id}}'>Profile</a>
+                                {% endif %}
+                                </td>
+                           </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="nofoundmember text-center">
+                <div class="alert alert-danger">
+                    <b>No one was found. Try another search criteria.</b>
+                </div>
+            </div>
+
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

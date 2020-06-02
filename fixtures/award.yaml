@@ -1,0 +1,14 @@
+- model: hq.award
+  pk: 1
+  fields:
+    name: "Merit Award"
+
+- model: hq.award
+  pk: 2
+  fields:
+    name: "William Tyler Olcott Award"
+
+- model: hq.award
+  pk: 3
+  fields:
+    name: "Director's Award"

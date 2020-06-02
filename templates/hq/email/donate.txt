@@ -1,0 +1,47 @@
+Thank you very much for your contribution! The details of your payment are below.
+
+Order ID: {{ POST.PNREF }}
+Amount: ${{ amount|floatformat:2 }}
+Designation: {{ fund }}{% if data.comments %}
+Comments: {{ data.comments }}{% endif %}{% if data.honor %}
+This gift is in honor of {{ data.honor }}{% endif %}{% if data.memory %}
+This gift is in memory of {{ data.memory }}{% endif %}
+This gift is anonymous: {{ data.anonymous|yesno:"YES,NO" }}
+
+User: {{ user }}({{user.id}})
+
+Contact Info
+------------
+{{ data.title }} {{ data.given_name }} {{ data.middle_name }} {{ data.family_name }} {{ data.name_suffix }}{% if data.organization %}
+{{ data.organization }}{% endif %}
+{{ data.address1 }}{% if data.address2 %}
+{{ data.address2 }}{% endif %}
+{{ data.city }} {{ data.region }} {{ data.postal }}
+{{ data.get_country_display }}
+Email: {{ data.email }}
+Phone: {{ data.phone1 }}{% if data.phone2 %}
+Phone2: {{ data.phone2 }}{% endif %}
+
+Billing Info
+------------
+{{ POST.NAME }}
+{{ POST.ADDRESS }}
+{{ POST.CITY }} {{ POST.STATE }} {{ POST.ZIP }}
+{{ POST.COUNTRY }}
+Email: {{ POST.EMAIL }}
+Phone: {{ POST.PHONE }}
+{% if data.notify1 or data.notify2 %}
+Persons to Notify
+-----------------{% if data.notify1 %}
+{{ data.notify1.full_name }}
+{{ data.notify1.address1 }}{% if data.notify1.address2 %}
+{{ data.notify1.address2 }}{% endif %}
+{{ data.notify1.city }} {{ data.notify1.region }} {{ data.notify1.postal }}
+{{ data.notify1.get_country_display }}
+{% endif %}{% if data.notify2 %}
+{{ data.notify2.full_name }}
+{{ data.notify2.address1 }}{% if data.notify2.address2 %} 
+{{ data.notify2.address2 }}{% endif %}
+{{ data.notify2.city }} {{ data.notify2.region }} {{ data.notify2.postal }}
+{{ data.notify2.get_country_display }}
+{% endif %}{% endif %}
